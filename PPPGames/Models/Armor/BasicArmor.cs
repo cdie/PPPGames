@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PPPGames.Models.Armor
 {
-    class BasicArmor : IArmor
+    public class BasicArmor : IArmor
     {
         public int Resistance { get; private set; } = 150;
 

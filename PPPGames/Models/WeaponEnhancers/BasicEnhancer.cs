@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PPPGames.Models.WeaponEnhancers
 {
-    class BasicEnhancer : IWeaponEnhancer
+    public class BasicEnhancer : IWeaponEnhancer
     {
         public int EnhancementValue => 10;
     }

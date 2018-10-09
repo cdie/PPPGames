@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PPPGames.Models.FightSkills
 {
-    class SnakeFightSkill : IFightSkill
+    public class SnakeFightSkill : IFightSkill
     {
 
         private Random r = new Random();

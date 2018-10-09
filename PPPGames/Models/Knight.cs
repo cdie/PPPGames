@@ -1,4 +1,7 @@
 ﻿using PPPGames.Models.Abstractions;
+using PPPGames.Models.Armor;
+using PPPGames.Models.FightSkills;
+using PPPGames.Models.WeaponEnhancers;
 using PPPGames.Models.Weapons;
 using System;
 using System.Collections.Generic;
@@ -45,18 +48,18 @@ namespace PPPGames.Models
 
             if (Armor?.Resistance > 0)
             {
-                Armor.TakeDamage(other.Weapon.Damage);
-                Console.WriteLine($"{Name} avoid {other.Weapon.Damage} pts of damage, thanks to it's wonderful armor !");
+                Armor.TakeDamage(damage);
+                Console.WriteLine($"{Name} avoid {damage} pts of damage, thanks to it's wonderful armor !");
             }
             else
             {
-                PointsOfLife = (int)Math.Max(0, PointsOfLife - other.Weapon.Damage);
-                Console.WriteLine($"Outch, {Name} takes {other.Weapon.Damage} pts of damage.");
+                PointsOfLife = (int)Math.Max(0, PointsOfLife - damage);
+                Console.WriteLine($"Outch, {Name} takes {damage} pts of damage.");
             }
             Alive = PointsOfLife > 0;
         }
 
-        public Knight(int strenght, IWeapon weapon, IArmor armor, IWeaponEnhancer weaponEnhancer, IFightSkill fightSkill)
+        public Knight(int strenght, IWeapon weapon, BasicArmor armor, BasicEnhancer weaponEnhancer, SnakeFightSkill fightSkill)
         {
             Strenght = strenght;
             if (weapon.Weight > Strenght)

@@ -4,11 +4,23 @@ using System.Text;
 
 namespace PPPGames.Models
 {
-    class Knight : Warrior
+    public class Knight
     {
-        public override void Hit(Warrior other)
+        public string Name { get; set; }
+        public int PointsOfLife { get; set; }
+        public int SwordDamage { get; set; }
+        public bool Alive { get; set; }
+
+        public void Hit(Knight other)
         {
             other.TakeHit(this);
         }
+
+        public void TakeHit(Knight other)
+        {
+            PointsOfLife = (int)Math.Max(0, PointsOfLife - other.SwordDamage);
+            Alive = PointsOfLife > 0;
+        }
+
     }
 }

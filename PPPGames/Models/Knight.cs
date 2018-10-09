@@ -8,7 +8,7 @@ namespace PPPGames.Models
     {
         public string Name { get; set; }
         public int PointsOfLife { get; set; }
-        public int SwordDamage { get; set; }
+        public IWeapon Weapon{ get; set; }
         public bool Alive { get; set; }
 
         public void Hit(Knight other)
@@ -18,7 +18,7 @@ namespace PPPGames.Models
 
         public void TakeHit(Knight other)
         {
-            PointsOfLife = (int)Math.Max(0, PointsOfLife - other.SwordDamage);
+            PointsOfLife = (int)Math.Max(0, PointsOfLife - other.Weapon.Damage);
             Alive = PointsOfLife > 0;
         }
 

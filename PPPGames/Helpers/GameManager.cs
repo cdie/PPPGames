@@ -1,4 +1,5 @@
 ﻿using PPPGames.Models;
+using PPPGames.Models.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,14 +20,14 @@ namespace PPPGames.Helpers
                 Name = "Perceval",
                 Alive = true,
                 PointsOfLife = 100,
-                SwordDamage = 10
+                Weapon = new Sword()
             };
             var arthur = new Knight
             {
                 Name = "Arthur",
                 Alive = true,
                 PointsOfLife = 75,
-                SwordDamage = 99
+                Weapon = new Excalibur()
             };
 
             while (perceval.Alive && arthur.Alive)

@@ -8,8 +8,6 @@ namespace PPPGames.Helpers
 {
     public static class GameManager
     {
-        private static Random r = new Random();
-
         public static void RunGame()
         {
             try

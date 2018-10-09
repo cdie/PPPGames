@@ -4,8 +4,9 @@ using System.Text;
 
 namespace PPPGames.Models.Weapons
 {
-    class Excalibur : IWeapon
+    class Excalibur : Sword
     {
-        public int Damage => 99;
+        public override int Damage => 99;
+        public override int Weight => 9999;
     }
 }

@@ -8,11 +8,16 @@ namespace PPPGames.Models
     {
         public string Name { get; set; }
         public int PointsOfLife { get; set; }
-        public IWeapon Weapon{ get; set; }
+        public int Strenght { get; set; }
+        public IWeapon Weapon { get; set; }
         public bool Alive { get; set; }
 
         public void Hit(Knight other)
         {
+            if(Weapon.Weight > Strenght)
+            {
+                throw new InvalidOperationException("Such a knight, with this strength, cannot carry a sooooo heavy weapon !");
+            }
             other.TakeHit(this);
         }
 
@@ -21,6 +26,6 @@ namespace PPPGames.Models
             PointsOfLife = (int)Math.Max(0, PointsOfLife - other.Weapon.Damage);
             Alive = PointsOfLife > 0;
         }
-
+        
     }
 }

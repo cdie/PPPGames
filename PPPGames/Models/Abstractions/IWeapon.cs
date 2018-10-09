@@ -8,6 +8,7 @@ namespace PPPGames.Models
     {
 
         int Damage { get; }
+        int Weight { get; }
 
     }
 }

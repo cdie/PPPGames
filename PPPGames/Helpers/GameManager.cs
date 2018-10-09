@@ -2,6 +2,7 @@
 using PPPGames.Models.Abstractions;
 using PPPGames.Models.Armor;
 using PPPGames.Models.FightSkills;
+using PPPGames.Models.Stuff;
 using PPPGames.Models.WeaponEnhancers;
 using PPPGames.Models.Weapons;
 using System;
@@ -19,13 +20,13 @@ namespace PPPGames.Helpers
                 Console.WriteLine("Warrior 1 : Perceval [100 pts of life] - Sword level 10");
                 Console.WriteLine("Warrior 2 : Arthur [75 pts of life] - Sword level 99");
 
-                var perceval = new Knight(100, new Sword(), new BasicArmor(), new BasicEnhancer(), new SnakeFightSkill())
+                var perceval = new Knight(100, new BasicStuff(), new SnakeFightSkill())
                 {
                     Name = "Perceval",
                     Alive = true,
                     PointsOfLife = 100
                 };
-                var arthur = new Knight(10000, new Excalibur(), new BasicArmor(), new BasicEnhancer(), new SnakeFightSkill())
+                var arthur = new Knight(10000, new EpicStuff(), new SnakeFightSkill())
                 {
                     Name = "Arthur",
                     Alive = true,

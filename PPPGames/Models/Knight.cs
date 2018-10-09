@@ -59,22 +59,27 @@ namespace PPPGames.Models
             Alive = PointsOfLife > 0;
         }
 
-        public Knight(int strenght, IWeapon weapon, BasicArmor armor, BasicEnhancer weaponEnhancer, SnakeFightSkill fightSkill)
+        public Knight(int strenght, IStuff stuff, IFightSkill fightSkill)
         {
+            if (stuff == null)
+            {
+                throw new ArgumentNullException(nameof(stuff));
+            }
+
             Strenght = strenght;
-            if (weapon.Weight > Strenght)
+            if (stuff.Weapon.Weight > Strenght)
             {
                 Weapon = new Hand();
             }
             else
             {
-                Weapon = weapon;
+                Weapon = stuff.Weapon;
             }
 
-            Armor = armor;
-            if (weaponEnhancer != null)
+            Armor = stuff.Armor;
+            if (stuff.WeaponEnhancer != null)
             {
-                Weapon.EnhanceWeapon(weaponEnhancer);
+                Weapon.EnhanceWeapon(stuff.WeaponEnhancer);
             }
 
             FightSkill = fightSkill;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPPGames.Models.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,6 +10,8 @@ namespace PPPGames.Models
 
         int Damage { get; }
         int Weight { get; }
+
+        void EnhanceWeapon(IWeaponEnhancer enhancer);
 
     }
 }

@@ -1,4 +1,8 @@
 ﻿using PPPGames.Models;
+using PPPGames.Models.Abstractions;
+using PPPGames.Models.Armor;
+using PPPGames.Models.FightSkills;
+using PPPGames.Models.WeaponEnhancers;
 using PPPGames.Models.Weapons;
 using System;
 using System.Collections.Generic;
@@ -15,21 +19,17 @@ namespace PPPGames.Helpers
                 Console.WriteLine("Warrior 1 : Perceval [100 pts of life] - Sword level 10");
                 Console.WriteLine("Warrior 2 : Arthur [75 pts of life] - Sword level 99");
 
-                var perceval = new Knight
+                var perceval = new Knight(100, new Sword(), new BasicArmor(), new BasicEnhancer(), new SnakeFightSkill())
                 {
-                    Strenght = 100,
                     Name = "Perceval",
                     Alive = true,
-                    PointsOfLife = 100,
-                    Weapon = new Sword()
+                    PointsOfLife = 100
                 };
-                var arthur = new Knight
+                var arthur = new Knight(10000, new Excalibur(), new BasicArmor(), new BasicEnhancer(), new SnakeFightSkill())
                 {
-                    Strenght = 10000,
                     Name = "Arthur",
                     Alive = true,
-                    PointsOfLife = 75,
-                    Weapon = new Excalibur()
+                    PointsOfLife = 75
                 };
 
                 while (perceval.Alive && arthur.Alive)
@@ -38,6 +38,7 @@ namespace PPPGames.Helpers
                     Console.WriteLine("Press 2 to make Arthure hit Perceval");
 
                     var key = Console.ReadKey().Key;
+                    Console.WriteLine();
 
                     if (key == ConsoleKey.D1 || key == ConsoleKey.NumPad1)
                     {
@@ -48,9 +49,8 @@ namespace PPPGames.Helpers
                         arthur.Hit(perceval);
                     }
                     Console.WriteLine();
-                    Console.WriteLine();
-                    Console.WriteLine($"Arthur's life : {arthur.PointsOfLife}");
-                    Console.WriteLine($"Perceval's life : {perceval.PointsOfLife}");
+                    Console.WriteLine($"Arthur's stats : life = {arthur.PointsOfLife} | armor = {arthur.Armor.Resistance}");
+                    Console.WriteLine($"Perceval's stats : life = {perceval.PointsOfLife} | armor = {perceval.Armor.Resistance}");
 
                 }
 

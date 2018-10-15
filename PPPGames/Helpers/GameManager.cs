@@ -15,21 +15,19 @@ namespace PPPGames.Helpers
                 Console.WriteLine("Warrior 1 : Perceval [100 pts of life] - Sword level 10");
                 Console.WriteLine("Warrior 2 : Arthur [75 pts of life] - Sword level 99");
 
-                var perceval = new Knight
+                var perceval = new Knight(new Sword())
                 {
                     Strenght = 100,
                     Name = "Perceval",
                     Alive = true,
-                    PointsOfLife = 100,
-                    Weapon = new Sword()
+                    PointsOfLife = 100
                 };
-                var arthur = new Knight
+                var arthur = new Knight(new Excalibur())
                 {
                     Strenght = 10000,
                     Name = "Arthur",
                     Alive = true,
-                    PointsOfLife = 75,
-                    Weapon = new Excalibur()
+                    PointsOfLife = 75
                 };
 
                 while (perceval.Alive && arthur.Alive)

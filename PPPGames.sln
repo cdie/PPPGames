@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPPGames", "PPPGames\PPPGames.csproj", "{EB6376EC-CB78-4297-8340-F8D6EC380749}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPPGames", "PPPGames\PPPGames.csproj", "{EB6376EC-CB78-4297-8340-F8D6EC380749}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPPGames.Tests", "tests\PPPGames.Tests\PPPGames.Tests.csproj", "{4BEB99EB-C7D1-4CF5-9ADB-0E4D740A098A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A016787C-63DE-4E25-872B-8677569B54FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{89DC8402-2F94-4666-913A-0743C6EEB8F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +21,17 @@ Global
 		{EB6376EC-CB78-4297-8340-F8D6EC380749}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB6376EC-CB78-4297-8340-F8D6EC380749}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB6376EC-CB78-4297-8340-F8D6EC380749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BEB99EB-C7D1-4CF5-9ADB-0E4D740A098A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BEB99EB-C7D1-4CF5-9ADB-0E4D740A098A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BEB99EB-C7D1-4CF5-9ADB-0E4D740A098A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BEB99EB-C7D1-4CF5-9ADB-0E4D740A098A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB6376EC-CB78-4297-8340-F8D6EC380749} = {A016787C-63DE-4E25-872B-8677569B54FF}
+		{4BEB99EB-C7D1-4CF5-9ADB-0E4D740A098A} = {89DC8402-2F94-4666-913A-0743C6EEB8F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E08F464-F33D-4B98-922A-C8EB39211F9D}

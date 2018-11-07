@@ -1,11 +1,6 @@
 ﻿using PPPGames.Models.Abstractions;
-using PPPGames.Models.Armor;
-using PPPGames.Models.FightSkills;
-using PPPGames.Models.WeaponEnhancers;
 using PPPGames.Models.Weapons;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PPPGames.Models
 {
@@ -46,14 +41,16 @@ namespace PPPGames.Models
                 }
             }
 
+            var totalDamage = damage;
             if (Armor?.Resistance > 0)
             {
                 Armor.TakeDamage(damage);
+                totalDamage -= Armor.Resistance;
                 Console.WriteLine($"{Name} avoid {damage} pts of damage, thanks to it's wonderful armor !");
             }
-            else
+            if(totalDamage > 0)
             {
-                PointsOfLife = (int)Math.Max(0, PointsOfLife - damage);
+                PointsOfLife = (int)Math.Max(0, PointsOfLife - totalDamage);
                 Console.WriteLine($"Outch, {Name} takes {damage} pts of damage.");
             }
             Alive = PointsOfLife > 0;

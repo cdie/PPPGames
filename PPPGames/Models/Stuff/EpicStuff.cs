@@ -7,7 +7,7 @@ using System.Text;
 
 namespace PPPGames.Models.Stuff
 {
-    class EpicStuff : IStuff
+    public class EpicStuff : IStuff
     {
         public IArmor Armor { get; }
 

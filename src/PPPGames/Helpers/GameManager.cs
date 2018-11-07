@@ -36,7 +36,7 @@ namespace PPPGames.Helpers
                 while (perceval.Alive && arthur.Alive)
                 {
                     Console.WriteLine("Press 1 to make Perceval hit Arthur");
-                    Console.WriteLine("Press 2 to make Arthure hit Perceval");
+                    Console.WriteLine("Press 2 to make Arthur hit Perceval");
 
                     var key = Console.ReadKey().Key;
                     Console.WriteLine();

@@ -14,44 +14,36 @@ namespace PPPGames.Tests
         [Fact]
         public void Arthur_Shouldnt_Kill_Perceval_In_OneHit()
         {
-            var perceval = new Knight(100, new BasicStuff(), new SnakeFightSkill())
-            {
-                Name = "Perceval",
-                Alive = true,
-                PointsOfLife = 100
-            };
-            var arthur = new Knight(10000, new EpicStuff(), new SnakeFightSkill())
-            {
-                Name = "Arthur",
-                Alive = true,
-                PointsOfLife = 75
-            };
+            var perceval = new Knight(
+                    new KnightState("Perceval", 100, 100),
+                    new BasicStuff(),
+                    new SnakeFightSkill());
+            var arthur = new Knight(
+                    new KnightState("Arthur", 10000, 75),
+                    new EpicStuff(),
+                    new SnakeFightSkill());
 
             arthur.Hit(perceval);
 
-            perceval.Alive.Should().BeTrue();
+            perceval.GetKnightState().Alive.Should().BeTrue();
         }
 
         [Fact]
         public void Arthur_Should_Kill_Perceval_In_TwoHist()
         {
-            var perceval = new Knight(100, new BasicStuff(), new SnakeFightSkill())
-            {
-                Name = "Perceval",
-                Alive = true,
-                PointsOfLife = 100
-            };
-            var arthur = new Knight(10000, new EpicStuff(), new SnakeFightSkill())
-            {
-                Name = "Arthur",
-                Alive = true,
-                PointsOfLife = 75
-            };
+            var perceval = new Knight(
+                    new KnightState("Perceval", 100, 100),
+                    new BasicStuff(),
+                    new SnakeFightSkill());
+            var arthur = new Knight(
+                    new KnightState("Arthur", 10000, 75),
+                    new EpicStuff(),
+                    new SnakeFightSkill());
 
             arthur.Hit(perceval);
             arthur.Hit(perceval);
 
-            perceval.Alive.Should().BeFalse();
+            perceval.GetKnightState().Alive.Should().BeFalse();
 
         }
 
@@ -63,26 +55,22 @@ namespace PPPGames.Tests
             invincibleFightSkillMoq.Setup(m => m.GetDamageReducer())
                 .Returns(int.MaxValue);
 
-            var perceval = new Knight(100, new BasicStuff(), invincibleFightSkillMoq.Object)
-            {
-                Name = "Perceval",
-                Alive = true,
-                PointsOfLife = 100
-            };
-            var arthur = new Knight(10000, new EpicStuff(), new SnakeFightSkill())
-            {
-                Name = "Arthur",
-                Alive = true,
-                PointsOfLife = 75
-            };
+            var perceval = new Knight(
+                    new KnightState("Perceval", 100, 100),
+                    new BasicStuff(),
+                    invincibleFightSkillMoq.Object);
+            var arthur = new Knight(
+                    new KnightState("Arthur", 10000, 75),
+                    new EpicStuff(),
+                    new SnakeFightSkill());
 
             for (int i = 0; i < 100; i++)
             {
                 arthur.Hit(perceval);
             }
 
-            perceval.Alive.Should().BeTrue();
-            perceval.PointsOfLife.Should().Be(100);
+            perceval.GetKnightState().Alive.Should().BeTrue();
+            perceval.GetKnightState().PointsOfLife.Should().Be(100);
         }
     }
 }

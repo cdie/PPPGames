@@ -18,7 +18,7 @@ namespace PPPGames.Helpers
         }
 
         private static string GetWarriorInfos(Knight warrior)
-            => $"{warrior.Name} is {(warrior.Alive ? "alive (" + warrior.PointsOfLife + " pts of life)" : "dead")} !";
+            => $"{warrior.GetKnightState().Name} is {(warrior.GetKnightState().Alive ? "alive (" + warrior.GetKnightState().PointsOfLife + " pts of life)" : "dead")} !";
 
     }
 }

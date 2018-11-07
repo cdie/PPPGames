@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPPGames.Models", "src\PPPG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PPPGames", "src\PPPGames\PPPGames.csproj", "{8C6FE888-BA23-471D-8D76-3A33523266CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPPGames.Infrastructure", "src\PPPGames.Infrastructure\PPPGames.Infrastructure.csproj", "{3CDA3989-D938-46B4-A344-DD5F8B0D5DF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{8C6FE888-BA23-471D-8D76-3A33523266CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C6FE888-BA23-471D-8D76-3A33523266CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C6FE888-BA23-471D-8D76-3A33523266CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CDA3989-D938-46B4-A344-DD5F8B0D5DF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CDA3989-D938-46B4-A344-DD5F8B0D5DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CDA3989-D938-46B4-A344-DD5F8B0D5DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CDA3989-D938-46B4-A344-DD5F8B0D5DF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{4BEB99EB-C7D1-4CF5-9ADB-0E4D740A098A} = {89DC8402-2F94-4666-913A-0743C6EEB8F5}
 		{92746D04-FE17-4FDE-AE7D-C49CEFDECA17} = {A016787C-63DE-4E25-872B-8677569B54FF}
 		{8C6FE888-BA23-471D-8D76-3A33523266CD} = {A016787C-63DE-4E25-872B-8677569B54FF}
+		{3CDA3989-D938-46B4-A344-DD5F8B0D5DF6} = {A016787C-63DE-4E25-872B-8677569B54FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E08F464-F33D-4B98-922A-C8EB39211F9D}

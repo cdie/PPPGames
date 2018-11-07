@@ -1,4 +1,5 @@
-﻿using PPPGames.Models;
+﻿using PPPGames.Infrastructure.Abstractions;
+using PPPGames.Models;
 using PPPGames.Models.Abstractions;
 using PPPGames.Models.Armor;
 using PPPGames.Models.FightSkills;
@@ -8,13 +9,20 @@ using PPPGames.Models.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PPPGames.Helpers
 {
-    public static class GameManager
+    public class GameManager
     {
+        private readonly IGameSaver _gameSaver;
 
-        public static void RunGame()
+        public GameManager(IGameSaver gameSaver = null)
+        {
+            _gameSaver = gameSaver;
+        }
+
+        public async Task RunGameAsync()
         {
             try
             {
@@ -44,6 +52,7 @@ namespace PPPGames.Helpers
                     }
                     else if (key == ConsoleKey.D2 || key == ConsoleKey.NumPad2)
                     {
+
                         arthur.Hit(perceval);
                     }
                     Console.WriteLine();
@@ -56,12 +65,15 @@ namespace PPPGames.Helpers
                 Console.WriteLine($"Arthur is {(arthur.GetKnightState().Alive ? "alive" : "dead")} !");
                 Console.WriteLine($"Perceval is {(perceval.GetKnightState().Alive ? "alive" : "dead")} !");
                 Console.WriteLine();
-                Console.WriteLine("Do you want to save game result into a file ? (y/n)");
-
-                var choice = Console.ReadKey().Key;
-                if (choice == ConsoleKey.Y)
+                if (_gameSaver != null)
                 {
-                    GameSaver.SaveGameToText(arthur, perceval);
+                    Console.WriteLine("Do you want to save game result into a file ? (y/n)");
+
+                    var choice = Console.ReadKey().Key;
+                    if (choice == ConsoleKey.Y)
+                    {
+                        await _gameSaver.SaveGameResultAsync(arthur, perceval);
+                    }
                 }
             }
             catch (Exception e)
